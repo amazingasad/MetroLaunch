@@ -1,10 +1,11 @@
 package com.metroos.launcher.util
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 
 /** Color <-> hex helpers shared by tile persistence. */
 fun colorToHex(color: Color): String {
-    val argb = Color.toArgb(color)
+    val argb = color.toArgb()
     return String.format("%08X", argb)
 }
 

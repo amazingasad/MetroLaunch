@@ -29,7 +29,7 @@ import com.metroos.launcher.ui.theme.MetroBlue
 import com.metroos.launcher.ui.theme.MetroTheme
 
 /**
- * Static design previews matching /design/*.svg mockups. Render in
+ * Static design previews matching design SVG mockups. Render in
  * Android Studio or via the CI screenshot job to verify the visual
  * language without a device.
  */

@@ -485,6 +485,7 @@ fun rememberWeatherSummary(): TileWeather? {
     var result by remember { mutableStateOf<TileWeather?>(null) }
     LaunchedEffect(Unit) {
         result = runCatching { com.metroos.launcher.apps.WeatherRepository.fetchSummary() }
+            .map { TileWeather(it.day, it.hi, it.lo, it.condition) }
             .getOrNull()
     }
     return result

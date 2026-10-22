@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -45,7 +46,7 @@ private data class Tile2048(val id: Int, val r: Int, val c: Int, val v: Int, val
  * 2048 with stable tile identities so Compose animates slide + merge
  * with spring physics. Swipe controls; score and best score persist.
  */
-class Game2048Logic {
+private class Game2048Logic {
     private val grid = Array(4) { arrayOfNulls<Tile2048>(4) }
     private var nextId = 1
     var score = 0
