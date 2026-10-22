@@ -96,3 +96,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: app/build/outputs/apk/release/app-release-unsigned.apk
+          tag_name: v1.0.${{ github.run_number }}
+          name: "MetroOS Release v1.0.${{ github.run_number }}"
+          body: "Automated release build generated from GitHub Actions."
+          draft: false
+          prerelease: false
