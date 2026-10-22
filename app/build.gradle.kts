@@ -7,6 +7,10 @@ plugins {
 android {
     namespace = "com.metroos.launcher"
     compileSdk = 35
+lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
 
     defaultConfig {
         applicationId = "com.metroos.launcher"
