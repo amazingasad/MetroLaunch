@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="412" height="892" viewBox="0 0 412 892" font-family="Segoe UI, Roboto, sans-serif">
+  <defs>
+    <linearGradient id="under" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B1B3A"/><stop offset="1" stop-color="#05070E"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.07"/>
+    </linearGradient>
+    <filter id="blur3" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+
+  <!-- underlying app (YouTube browser) -->
+  <rect width="412" height="892" fill="url(#under)"/>
+  <rect x="0" y="120" width="412" height="240" fill="#282828"/>
+  <text x="206" y="250" fill="#FF0000" font-size="60" text-anchor="middle">▶</text>
+  <rect x="24" y="390" width="200" height="16" fill="#FFFFFF" opacity="0.5"/>
+  <rect x="24" y="418" width="120" height="12" fill="#FFFFFF" opacity="0.25"/>
+
+  <!-- dim scrim -->
+  <rect width="412" height="892" fill="#000000" opacity="0.35"/>
+
+  <!-- pulled-down glass quick settings panel -->
+  <g>
+    <rect x="0" y="0" width="412" height="380" fill="url(#panel)" filter="url(#blur3)"/>
+    <rect x="0" y="0" width="412" height="380" fill="url(#panel)"/>
+    <rect x="0" y="378" width="412" height="2" fill="#FFFFFF" opacity="0.3"/>
+
+    <text x="24" y="52" fill="#FFFFFF" font-size="26" font-weight="200">Quick settings</text>
+    <text x="24" y="76" fill="#FFFFFF" font-size="12" opacity="0.7">Tuesday · 62% battery</text>
+
+    <!-- toggle grid 2x3 -->
+    <g>
+      <rect x="24" y="100" width="120" height="64" fill="#0063B1"/>
+      <text x="36" y="128" fill="#FFFFFF" font-size="13" font-weight="600">Wi-Fi</text>
+      <text x="36" y="148" fill="#FFFFFF" font-size="11" opacity="0.8">Home_5G</text>
+    </g>
+    <g>
+      <rect x="152" y="100" width="120" height="64" fill="#008A00"/>
+      <text x="164" y="128" fill="#FFFFFF" font-size="13" font-weight="600">Bluetooth</text>
+      <text x="164" y="148" fill="#FFFFFF" font-size="11" opacity="0.8">2 devices</text>
+    </g>
+    <g>
+      <rect x="280" y="100" width="108" height="64" fill="#FFFFFF" opacity="0.12"/>
+      <text x="292" y="128" fill="#FFFFFF" font-size="13" font-weight="600">Torch</text>
+      <text x="292" y="148" fill="#FFFFFF" font-size="11" opacity="0.6">Off</text>
+    </g>
+    <g>
+      <rect x="24" y="172" width="120" height="64" fill="#FFFFFF" opacity="0.12"/>
+      <text x="36" y="200" fill="#FFFFFF" font-size="13" font-weight="600">Do not disturb</text>
+      <text x="36" y="220" fill="#FFFFFF" font-size="11" opacity="0.6">Off</text>
+    </g>
+    <g>
+      <rect x="152" y="172" width="120" height="64" fill="#FA6800"/>
+      <text x="164" y="200" fill="#FFFFFF" font-size="13" font-weight="600">Rotate</text>
+      <text x="164" y="220" fill="#FFFFFF" font-size="11" opacity="0.8">Auto</text>
+    </g>
+    <g>
+      <rect x="280" y="172" width="108" height="64" fill="#FFFFFF" opacity="0.12"/>
+      <text x="292" y="200" fill="#FFFFFF" font-size="13" font-weight="600">Airplane</text>
+      <text x="292" y="220" fill="#FFFFFF" font-size="11" opacity="0.6">Off</text>
+    </g>
+
+    <!-- brightness slider -->
+    <rect x="24" y="264" width="364" height="10" rx="5" fill="#FFFFFF" opacity="0.2"/>
+    <rect x="24" y="264" width="220" height="10" rx="5" fill="#00ABA9"/>
+    <circle cx="244" cy="269" r="11" fill="#FFFFFF"/>
+    <text x="24" y="300" fill="#FFFFFF" font-size="11" opacity="0.6">Brightness</text>
+
+    <!-- notification row -->
+    <rect x="24" y="318" width="364" height="44" fill="#FFFFFF" opacity="0.1"/>
+    <text x="38" y="346" fill="#FFFFFF" font-size="12">✉ Messages · Sam: "Launcher looks sick"</text>
+  </g>
+
+  <!-- top edge swipe hint -->
+  <rect x="0" y="0" width="412" height="6" fill="#00ABA9" opacity="0.5"/>
+</svg>

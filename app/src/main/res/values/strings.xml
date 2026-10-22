@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MetroOS</string>
+    <string name="edge_service_label">MetroOS Edge Gestures</string>
+    <string name="edge_service_desc">Enables MeeGo-style edge swipes: swipe up from the bottom to go home, from the left/right edges to switch apps, and down from the top for quick settings.</string>
+</resources>
