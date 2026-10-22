@@ -1,5 +1,7 @@
 package com.metroos.launcher.games
 
+import kotlin.math.abs
+
 /**
  * Compact, allocation-friendly chess engine: full legal move generation
  * (including castling and promotion to queen), check detection and a

@@ -19,7 +19,7 @@ data class WeatherDay(
     /** WMO weather code from Open-Meteo. */
     val code: Int
 ) {
-    val condition: String get() = describe(code)
+    val condition: String get() = WeatherRepository.describe(code)
 }
 
 /**
