@@ -249,8 +249,8 @@ private fun loadCallLog(context: android.content.Context): List<Pair<String, Str
 
 private fun placeCall(context: android.content.Context, number: String) {
     if (number.isBlank()) return
-    val canDirect = ContextCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE)
-        == PackageManager.PERMISSION_GRANTED
+    val canDirect = ContextCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) ==
+        PackageManager.PERMISSION_GRANTED
     val intent = if (canDirect) {
         android.content.Intent(android.content.Intent.ACTION_CALL, android.net.Uri.parse("tel:$number"))
     } else {

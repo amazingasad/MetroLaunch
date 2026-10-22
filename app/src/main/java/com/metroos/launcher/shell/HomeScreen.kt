@@ -70,6 +70,7 @@ import java.util.Locale
  * Modernized Windows Phone start screen: 4-column live tile grid,
  * typographic clock, status row and glass affordances.
  */
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     onOpenRoute: (String) -> Unit,
