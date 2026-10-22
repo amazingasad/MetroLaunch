@@ -28,7 +28,6 @@ jobs:
       - name: Generate Gradle Wrapper
         run: |
           gradle_version="8.7"
-          echo "Downloading Gradle $gradle_version to generate wrapper..."
           wget -q https://services.gradle.org/distributions/gradle-${gradle_version}-bin.zip
           unzip -q gradle-${gradle_version}-bin.zip
           export PATH=$PWD/gradle-${gradle_version}/bin:$PATH
@@ -39,7 +38,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        run: ./gradlew assembleDebug --no-daemon --stacktrace --info
 
       - name: Run Android Lint audit
         run: ./gradlew lint --no-daemon || true
@@ -87,7 +86,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Release APK
-        run: ./gradlew assembleRelease --no-daemon --stacktrace
+        run: ./gradlew assembleRelease --no-daemon --stacktrace --info
 
       - name: Create GitHub Release and upload APK
         uses: softprops/action-gh-release@v2
