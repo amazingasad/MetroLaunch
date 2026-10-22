@@ -14,16 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Uncomment if your project needs Node.js / Capacitor sync before building:
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '20'
-      # - name: Install dependencies and sync
-      #   run: |
-      #     npm install
-      #     npx cap sync android
-
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -35,26 +25,30 @@ jobs:
         with:
           packages: platform-tools platforms;android-35 build-tools;35.0.0
 
+      - name: Generate Gradle Wrapper
+        run: |
+          gradle_version="8.7"
+          echo "Downloading Gradle $gradle_version to generate wrapper..."
+          wget -q https://services.gradle.org/distributions/gradle-${gradle_version}-bin.zip
+          unzip -q gradle-${gradle_version}-bin.zip
+          export PATH=$PWD/gradle-${gradle_version}/bin:$PATH
+          gradle wrapper --gradle-version ${gradle_version}
+          chmod +x gradlew
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-        working-directory: android
-
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
-        working-directory: android
 
       - name: Run Android Lint audit
         run: ./gradlew lint --no-daemon || true
-        working-directory: android
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: MetroOS-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
 
   release:
@@ -80,18 +74,22 @@ jobs:
         with:
           packages: platform-tools platforms;android-35 build-tools;35.0.0
 
+      - name: Generate Gradle Wrapper
+        run: |
+          gradle_version="8.7"
+          wget -q https://services.gradle.org/distributions/gradle-${gradle_version}-bin.zip
+          unzip -q gradle-${gradle_version}-bin.zip
+          export PATH=$PWD/gradle-${gradle_version}/bin:$PATH
+          gradle wrapper --gradle-version ${gradle_version}
+          chmod +x gradlew
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-        working-directory: android
-
       - name: Build Release APK
         run: ./gradlew assembleRelease --no-daemon --stacktrace
-        working-directory: android
 
       - name: Create GitHub Release and upload APK
         uses: softprops/action-gh-release@v2
         with:
-          files: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          files: app/build/outputs/apk/release/app-release-unsigned.apk
