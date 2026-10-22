@@ -70,7 +70,7 @@ fun ChessGame() {
 
     fun commit(move: ChessEngine.Move) {
         val next = ChessEngine.applyMove(board, move)
-        history = history + next
+        history = history + listOf(next)
         board = next
         whiteTurn = !whiteTurn
         lastMove = move
